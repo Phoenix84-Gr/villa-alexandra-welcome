@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Welcome to Villa Alexandra — Guest Guide</title>
+<meta name="description" content="Your guide to a perfect stay at Villa Alexandra in Nea Peramos, Greece. Beaches, tavernas, services and emergency contacts — one tap away.">
+<meta name="theme-color" content="#A4B494">
+<link rel="icon" href="https://villa-alexandra.lovable.app/lovable-uploads/669a1557-cb58-47c3-95a2-e39adc49d607.png">
+<link rel="apple-touch-icon" href="https://villa-alexandra.lovable.app/lovable-uploads/669a1557-cb58-47c3-95a2-e39adc49d607.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:rgb(253,252,249);
+    --bg-soft:rgb(248,246,240);
+    --fg:rgb(110,110,110);
+    --fg-dark:rgb(60,60,60);
+    --primary:rgb(164,180,148);
+    --primary-dark:rgb(132,152,116);
+    --primary-fg:rgb(253,252,249);
+    --accent:rgb(183,210,210);
+    --accent-dark:rgb(120,165,165);
+    --terracotta:rgb(195,111,80);
+    --border:rgba(110,110,110,.12);
+    --shadow:0 2px 8px rgba(60,60,60,.06);
+    --shadow-lg:0 8px 24px rgba(60,60,60,.12);
+    --radius:.75rem;
+    --radius-lg:1.25rem;
+  }
+  *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+  html{scroll-behavior:smooth;scroll-padding-top:60px}
+  body{margin:0;font-family:'Inter',sans-serif;background:var(--bg);color:var(--fg);line-height:1.6;font-size:16px;padding-bottom:88px}
+  h1,h2,h3,h4{font-family:'Playfair Display',serif;color:var(--fg-dark);font-weight:600;line-height:1.2}
+  h1{font-size:2rem;margin:0}
+  h2{font-size:1.55rem;margin:2.25rem 0 1rem;padding-left:1.1rem;border-left:4px solid var(--primary);display:flex;align-items:center;gap:.55rem}
+  h3{font-size:1.15rem;margin:1.1rem 0 .45rem;color:var(--fg-dark)}
+  p{margin:0 0 .85rem}
+  a{color:var(--primary-dark);text-decoration:none}
+  .container{max-width:760px;margin:0 auto;padding:0 1.15rem}
+  .lang-strip{position:sticky;top:0;z-index:90;background:rgba(253,252,249,.96);backdrop-filter:blur(12px);padding:.55rem 1rem;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid var(--border)}
+  .lang-strip .brand{font-family:'Playfair Display',serif;font-weight:600;color:var(--fg-dark);font-size:.95rem;display:flex;align-items:center;gap:.45rem}
+  .lang-strip .brand img{width:22px;height:22px;border-radius:50%}
+  .lang-buttons button{background:transparent;border:1px solid var(--border);padding:.22rem .5rem;border-radius:999px;font-size:.7rem;font-weight:600;color:var(--fg);cursor:pointer;margin-left:.25rem;font-family:'Inter',sans-serif}
+  .lang-buttons button.active{background:var(--primary);color:var(--primary-fg);border-color:var(--primary)}
+  .hero{position:relative;min-height:62vh;background:linear-gradient(rgba(60,60,60,.30),rgba(60,60,60,.55)),url('https://villa-alexandra.lovable.app/lovable-uploads/096fc160-9334-4569-9187-ce3df78c8051.jpg') center/cover;color:var(--primary-fg);display:flex;flex-direction:column;justify-content:flex-end;padding:5rem 1.25rem 3rem}
+  .hero-logo{width:80px;height:80px;border-radius:50%;background:rgba(255,255,255,.95);padding:6px;box-shadow:var(--shadow-lg);margin-bottom:1.1rem}
+  .hero h1{color:var(--primary-fg);font-size:2.5rem;letter-spacing:-.01em}
+  .hero .tagline{font-family:'Playfair Display',serif;font-style:italic;font-size:1.05rem;opacity:.94;margin-top:.4rem}
+  .hero .sub{margin-top:.85rem;max-width:34ch;opacity:.95;font-size:.95rem}
+  .quick-actions{display:grid;grid-template-columns:repeat(4,1fr);gap:.55rem;margin:-2.25rem 1.15rem 1.5rem;position:relative;z-index:2}
+  .qa{background:#fff;border-radius:var(--radius);padding:.85rem .3rem;text-align:center;box-shadow:var(--shadow-lg);color:var(--fg-dark);text-decoration:none;display:flex;flex-direction:column;align-items:center;gap:.3rem;font-size:.7rem;font-weight:600;line-height:1.15;transition:transform .12s}
+  .qa:active{transform:scale(.96)}
+  .qa-icon{font-size:1.55rem;line-height:1}
+  section{padding:.75rem 0}
+  .card{background:#fff;border-radius:var(--radius-lg);padding:1.15rem 1.2rem;box-shadow:var(--shadow);border:1px solid var(--border);margin-bottom:.85rem}
+  .place{background:#fff;border-radius:var(--radius-lg);padding:1.1rem 1.2rem;box-shadow:var(--shadow);border:1px solid var(--border);margin-bottom:.85rem}
+  .place h3{margin-top:0;display:flex;align-items:center;gap:.45rem;flex-wrap:wrap}
+  .time-pill{display:inline-block;background:var(--accent);color:var(--fg-dark);font-size:.68rem;font-weight:700;padding:.18rem .55rem;border-radius:999px;font-family:'Inter',sans-serif}
+  .place p{color:var(--fg);font-size:.92rem;margin:.35rem 0 .55rem}
+  .place-actions{display:flex;gap:.45rem;flex-wrap:wrap;margin-top:.55rem}
+  .btn{display:inline-flex;align-items:center;gap:.35rem;padding:.5rem .85rem;border-radius:999px;font-size:.78rem;font-weight:600;text-decoration:none;border:none;cursor:pointer;transition:transform .12s,opacity .15s;font-family:'Inter',sans-serif}
+  .btn:active{transform:scale(.96)}
+  .btn-primary{background:var(--primary);color:var(--primary-fg)}
+  .btn-secondary{background:var(--accent);color:var(--fg-dark)}
+  .btn-outline{background:#fff;color:var(--fg-dark);border:1px solid var(--border)}
+  .btn-terracotta{background:var(--terracotta);color:var(--primary-fg)}
+  .service-list{list-style:none;padding:0;margin:0}
+  .service-list li{display:flex;justify-content:space-between;align-items:center;gap:.75rem;padding:.7rem 0;border-bottom:1px dashed var(--border);font-size:.94rem}
+  .service-list li:last-child{border-bottom:0}
+  .service-list .s-name{color:var(--fg-dark);font-weight:600;display:flex;align-items:center;gap:.45rem}
+  .price{font-weight:700;color:var(--primary-dark);white-space:nowrap}
+  .price.muted{color:var(--fg);font-size:.78rem;font-weight:500}
+  .emergency-grid{display:grid;grid-template-columns:1fr 1fr;gap:.6rem}
+  .em-card{background:#fff;border-radius:var(--radius);padding:.85rem .6rem;border:1px solid var(--border);box-shadow:var(--shadow);text-align:center;text-decoration:none;color:var(--fg-dark);display:flex;flex-direction:column;align-items:center;gap:.2rem}
+  .em-card .em-icon{font-size:1.5rem}
+  .em-card .num{font-family:'Playfair Display',serif;font-size:1.45rem;color:var(--terracotta);font-weight:700;line-height:1}
+  .em-card .label{font-size:.72rem;text-transform:uppercase;letter-spacing:.04em;opacity:.85;font-weight:600}
+  .host-card{background:linear-gradient(135deg,var(--primary) 0%,var(--accent-dark) 100%);color:var(--primary-fg);border-radius:var(--radius-lg);padding:1.15rem;box-shadow:var(--shadow-lg);margin:.95rem 0}
+  .host-card h3{color:var(--primary-fg);margin:0 0 .35rem;font-size:1.15rem}
+  .host-card .host-sub{font-size:.82rem;opacity:.9;margin-bottom:.75rem}
+  .host-row{display:flex;justify-content:space-between;align-items:center;gap:.6rem;padding:.65rem 0;border-top:1px solid rgba(255,255,255,.25)}
+  .host-row:first-of-type{border-top:0;padding-top:.2rem}
+  .host-name{font-weight:600;font-size:.92rem}
+  .host-name small{display:block;font-weight:400;opacity:.85;font-size:.72rem;margin-top:.1rem}
+  .host-actions{display:flex;gap:.4rem}
+  .host-actions .btn{background:rgba(255,255,255,.18);color:var(--primary-fg);backdrop-filter:blur(4px);padding:.42rem .65rem}
+  .host-actions .btn.whatsapp{background:#25D366;color:#fff}
+  .rule{display:flex;gap:.85rem;padding:.85rem 0;border-bottom:1px solid var(--border)}
+  .rule:last-child{border-bottom:0}
+  .rule-icon{font-size:1.45rem;flex-shrink:0;line-height:1;padding-top:3px}
+  .rule-text{font-size:.94rem}
+  .rule-text strong{display:block;color:var(--fg-dark);margin-bottom:.12rem;font-weight:600}
+  .badge{display:inline-block;background:var(--primary);color:var(--primary-fg);font-size:.68rem;font-weight:700;padding:.18rem .55rem;border-radius:999px;text-transform:uppercase;letter-spacing:.05em;font-family:'Inter',sans-serif;vertical-align:middle;margin-left:.3rem}
+  .badge.new{background:var(--terracotta)}
+  .info-strip{background:var(--bg-soft);border-left:4px solid var(--primary);padding:.85rem 1rem;border-radius:0 var(--radius) var(--radius) 0;margin:.85rem 0;font-size:.92rem}
+  .info-strip strong{color:var(--fg-dark)}
+  .check-grid{display:grid;grid-template-columns:1fr 1fr;gap:.7rem}
+  .check-tile{background:var(--bg-soft);border-radius:var(--radius);padding:.85rem;text-align:center}
+  .check-tile .label{font-size:.7rem;text-transform:uppercase;letter-spacing:.05em;color:var(--fg);font-weight:600}
+  .check-tile .time{font-family:'Playfair Display',serif;font-size:1.7rem;color:var(--primary-dark);font-weight:700;line-height:1.1;margin-top:.2rem}
+  .bottom-nav{position:fixed;bottom:0;left:0;right:0;background:rgba(255,255,255,.97);backdrop-filter:blur(12px);border-top:1px solid var(--border);display:grid;grid-template-columns:repeat(5,1fr);z-index:100;padding:.45rem 0 max(.55rem,env(safe-area-inset-bottom))}
+  .bottom-nav a{display:flex;flex-direction:column;align-items:center;gap:.15rem;padding:.35rem .25rem;text-decoration:none;color:var(--fg);font-size:.63rem;font-weight:600}
+  .bottom-nav a .nav-icon{font-size:1.35rem;line-height:1}
+  .bottom-nav a:hover,.bottom-nav a.active{color:var(--primary-dark)}
+  .signoff{text-align:center;padding:2rem 1.25rem 1rem;font-family:'Playfair Display',serif;font-style:italic;color:var(--fg-dark);font-size:1.2rem;line-height:1.4}
+  .signoff-sub{font-style:normal;font-family:'Inter',sans-serif;color:var(--fg);font-size:.82rem;margin-top:.65rem}
+  .footer-mini{text-align:center;padding:1.25rem 1rem 1.5rem;color:var(--fg);font-size:.72rem;opacity:.7}
+  .pool-banner{background:linear-gradient(135deg,var(--accent) 0%,var(--accent-dark) 100%);color:var(--fg-dark);border-radius:var(--radius-lg);padding:1.15rem;box-shadow:var(--shadow);margin-bottom:.85rem;display:flex;align-items:center;gap:1rem}
+  .pool-banner .pool-icon{font-size:2.6rem;line-height:1}
+  .pool-banner h3{margin:0 0 .1rem;color:var(--fg-dark)}
+  .pool-banner p{margin:0;font-size:.88rem}
+  @media (min-width:520px){
+    .hero h1{font-size:3rem}
+    .quick-actions{margin-left:auto;margin-right:auto;max-width:720px}
+  }
+</style>
+</head>
+<body>
+
+<!-- Top language strip -->
+<div class="lang-strip">
+  <div class="brand">
+    <img src="https://villa-alexandra.lovable.app/lovable-uploads/669a1557-cb58-47c3-95a2-e39adc49d607.png" alt="">
+    Villa Alexandra
+  </div>
+  <div class="lang-buttons">
+    <button class="active" data-lang="en">EN</button>
+    <button data-lang="bg" onclick="alert('Bulgarian version coming soon — your host will update the link shortly.')">BG</button>
+    <button data-lang="ro" onclick="alert('Romanian version coming soon — your host will update the link shortly.')">RO</button>
+    <button data-lang="cs" onclick="alert('Czech version coming soon — your host will update the link shortly.')">CZ</button>
+  </div>
+</div>
+
+<!-- HERO -->
+<header class="hero" id="top">
+  <img src="https://villa-alexandra.lovable.app/lovable-uploads/669a1557-cb58-47c3-95a2-e39adc49d607.png" alt="Villa Alexandra" class="hero-logo">
+  <h1>Welcome to<br>Villa Alexandra</h1>
+  <div class="tagline">Privacy. Luxury. Relaxation.</div>
+  <p class="sub">When the sun meets the sea, relaxation is combined with luxury. We wish you a perfect stay.</p>
+</header>
+
+<!-- QUICK ACTIONS -->
+<div class="quick-actions">
+  <a href="tel:+306930396868" class="qa">
+    <div class="qa-icon">📞</div>
+    <div>Call Host</div>
+  </a>
+  <a href="https://wa.me/306930396868" class="qa" target="_blank" rel="noopener">
+    <div class="qa-icon">💬</div>
+    <div>WhatsApp</div>
+  </a>
+  <a href="https://maps.app.goo.gl/yNM6B3LEYXJ2cFmRA" class="qa" target="_blank" rel="noopener">
+    <div class="qa-icon">📍</div>
+    <div>Directions</div>
+  </a>
+  <a href="#emergency" class="qa">
+    <div class="qa-icon">🚨</div>
+    <div>Emergency</div>
+  </a>
+</div>
+
+<main class="container">
+
+  <!-- LOCATION & CHECK-IN -->
+  <section id="stay">
+    <h2><span>🏡</span> Your Stay</h2>
+
+    <div class="card">
+      <p style="margin-top:0"><strong style="color:var(--fg-dark)">Villa Alexandra</strong> is located near Nea Peramos – Kavala, in a magnificent location surrounded by ancient olive trees overlooking the Aegean Sea.</p>
+      <a href="https://maps.app.goo.gl/yNM6B3LEYXJ2cFmRA" target="_blank" rel="noopener" class="btn btn-primary">📍 Open in Google Maps</a>
+    </div>
+
+    <div class="check-grid">
+      <div class="check-tile">
+        <div class="label">Check-In</div>
+        <div class="time">15:00</div>
+      </div>
+      <div class="check-tile">
+        <div class="label">Check-Out</div>
+        <div class="time">10:00</div>
+      </div>
+    </div>
+    <div class="info-strip"><strong>Early check-in?</strong> If possible, we'll let you know with a personal message.</div>
+
+    <!-- NEW: Pool -->
+    <div class="pool-banner">
+      <div class="pool-icon">🏊</div>
+      <div>
+        <h3>Large Pool <span class="badge new">NEW 2026</span></h3>
+        <p>A large pool has been added for the season — perfect for cooling off after the beach.</p>
+      </div>
+    </div>
+
+    <!-- Host card -->
+    <div class="host-card">
+      <h3>Your Hosts</h3>
+      <div class="host-sub">Reach us anytime — we are at your service.</div>
+      <div class="host-row">
+        <div class="host-name">Mpampis Pimenidis<small>Calls &amp; WhatsApp</small></div>
+        <div class="host-actions">
+          <a href="tel:+306930396868" class="btn">📞 Call</a>
+          <a href="https://wa.me/306930396868" class="btn whatsapp" target="_blank" rel="noopener">💬 WhatsApp</a>
+        </div>
+      </div>
+      <div class="host-row">
+        <div class="host-name">Lefteris Pimenidis<small>SMS only</small></div>
+        <div class="host-actions">
+          <a href="sms:+306936583290" class="btn">✉️ Send SMS</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section id="services">
+    <h2><span>✨</span> Services on Request</h2>
+    <div class="info-strip">Please call us <strong>at least 4 days in advance</strong> to arrange the availability of the professional.</div>
+    <div class="card">
+      <ul class="service-list">
+        <li><span class="s-name">💆 Massage</span><span class="price">50 €</span></li>
+        <li><span class="s-name">⛵ Boat Rental</span><span class="price muted">Call to confirm</span></li>
+        <li><span class="s-name">🚤 Boat Trip</span><span class="price muted">Call to confirm</span></li>
+        <li><span class="s-name">💄 Pro Make-up Artist</span><span class="price">50 € / person</span></li>
+        <li><span class="s-name">🤿 Scuba Diving</span><span class="price muted">Call to confirm</span></li>
+        <li><span class="s-name">🥗 Food Package</span><span class="price muted">From listed tavernas</span></li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3 style="margin-top:.1rem">📸 Photography Session</h3>
+      <p>2 hours capturing your moments — at the sea, in the Villa, or wherever you wish. Includes all digital files, 10 prints (13×18) and 4 enlargements (20×25).</p>
+      <p style="margin:0"><span class="price" style="font-size:1.25rem">200 €</span></p>
+    </div>
+  </section>
+
+  <!-- EMERGENCY -->
+  <section id="emergency">
+    <h2><span>🚨</span> Emergency Numbers</h2>
+    <div class="emergency-grid">
+      <a href="tel:112" class="em-card">
+        <div class="em-icon">🆘</div>
+        <div class="num">112</div>
+        <div class="label">Emergency</div>
+      </a>
+      <a href="tel:100" class="em-card">
+        <div class="em-icon">👮</div>
+        <div class="num">100</div>
+        <div class="label">Police</div>
+      </a>
+      <a href="tel:199" class="em-card">
+        <div class="em-icon">🚒</div>
+        <div class="num">199</div>
+        <div class="label">Fire</div>
+      </a>
+      <a href="tel:166" class="em-card">
+        <div class="em-icon">🚑</div>
+        <div class="num">166</div>
+        <div class="label">Ambulance</div>
+      </a>
+    </div>
+  </section>
+
+  <!-- HOUSE RULES -->
+  <section id="rules">
+    <h2><span>📋</span> House Notes</h2>
+    <div class="card">
+      <div class="rule">
+        <div class="rule-icon">🚭</div>
+        <div class="rule-text"><strong>Smoking</strong>Allowed only in the outside (open) area and toilets.</div>
+      </div>
+      <div class="rule">
+        <div class="rule-icon">🎥</div>
+        <div class="rule-text"><strong>Security Cameras</strong>The exterior of the villa is recorded 24/7 for security. Indoor spaces remain completely private.</div>
+      </div>
+      <div class="rule">
+        <div class="rule-icon">🔐</div>
+        <div class="rule-text"><strong>Alarm &amp; Keys</strong>Take the card-keys and lock the house when you leave — otherwise the alarm system will not arm.</div>
+      </div>
+      <div class="rule">
+        <div class="rule-icon">🧹</div>
+        <div class="rule-text"><strong>Cleaning</strong>Linen change and bin emptying every 4 days for stays over 8 days. Prefer to do it yourself? Just call us and we'll arrange to drop off the linens.</div>
+      </div>
+      <div class="rule">
+        <div class="rule-icon">💧</div>
+        <div class="rule-text"><strong>Water</strong>Tap water is connected to the state drinking-water supply. In summer we recommend bottled water — a six-pack is provided on arrival.</div>
+      </div>
+      <div class="rule">
+        <div class="rule-icon">❄️</div>
+        <div class="rule-text"><strong>Air Conditioning</strong>The A/C works only when doors and windows are closed. Sensors will automatically shut off the A/C in any room that's left open.</div>
+      </div>
+      <div class="rule">
+        <div class="rule-icon">🍼</div>
+        <div class="rule-text"><strong>Baby Cot &amp; High Chair</strong>Provided free of charge — just let us know in advance.</div>
+      </div>
+      <div class="rule">
+        <div class="rule-icon">🩹</div>
+        <div class="rule-text"><strong>First Aid &amp; Fire Extinguishers</strong>Available inside the house. Use them if needed.</div>
+      </div>
+      <div class="rule">
+        <div class="rule-icon">🗝️</div>
+        <div class="rule-text"><strong>Locked Out?</strong>There is a second key in a locker outside. Call us for the password.</div>
+      </div>
+      <div class="rule">
+        <div class="rule-icon">⚠️</div>
+        <div class="rule-text"><strong>Damages</strong>Please treat the villa as your own. Any damages must be settled before departure. In case of an accident, the host is not liable.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CITIES -->
+  <section id="explore">
+    <h2><span>🏛️</span> Towns Nearby</h2>
+
+    <article class="place">
+      <h3>Kavala <span class="time-pill">35 min</span></h3>
+      <p>A hidden Aegean gem blending ancient history with modern charm — cobblestone old town, Byzantine walls, the imposing Kavala Castle, and seaside tavernas with fresh seafood.</p>
+      <div class="place-actions">
+        <a href="https://maps.app.goo.gl/pae4DqNTcSQGN6yz6" class="btn btn-primary" target="_blank" rel="noopener">📍 Get Directions</a>
+      </div>
+    </article>
+
+    <article class="place">
+      <h3>Nea Peramos <span class="time-pill">14 min</span></h3>
+      <p>Stunning beaches and unique tavernas. Stroll the seaside pedestrian street, relax in the cafés and bars, and enjoy traditional Greek food.</p>
+      <div class="place-actions">
+        <a href="https://maps.app.goo.gl/yNM6B3LEYXJ2cFmRA" class="btn btn-primary" target="_blank" rel="noopener">📍 Get Directions</a>
+      </div>
+    </article>
+
+    <article class="place">
+      <h3>Eleftheroupoli <span class="time-pill">20 min</span></h3>
+      <p>One of the oldest towns in Eastern Macedonia, built at the foot of mounts Paggaio and Symbolo. <strong>Friday traditional market</strong> — fresh fruit and vegetables directly from producers. Visit the historic Holy Church of Agios Nikolaos.</p>
+    </article>
+  </section>
+
+  <!-- ORGANIZED BEACHES -->
+  <section id="beaches">
+    <h2><span>⛱️</span> Organized Beaches</h2>
+
+    <article class="place">
+      <h3>Ammolofi <span class="time-pill">12 min</span></h3>
+      <p>Ranked among the ten most beautiful beaches in Greece. Turquoise waters, long golden sand, beach bars, sunbeds and parking.</p>
+      <div class="place-actions">
+        <a href="https://maps.app.goo.gl/J83kdp2168ryLssZA" class="btn btn-primary" target="_blank" rel="noopener">📍 Directions</a>
+      </div>
+    </article>
+
+    <article class="place">
+      <h3>Almyra Beach Bar <span class="time-pill">6 min</span></h3>
+      <p>One of the most famous beach bars in the area. Fully organized with beach volleyball, beach tennis and racquetball. Known for parties with well-known DJs and unforgettable nights by the sea.</p>
+      <div class="place-actions">
+        <a href="https://maps.app.goo.gl/cuHfxU15tssUSrUK7" class="btn btn-primary" target="_blank" rel="noopener">📍 Directions</a>
+      </div>
+    </article>
+
+    <article class="place">
+      <h3>Beach Bar Tripa <span class="time-pill">4 min</span></h3>
+      <p>A magnificent landscape with views of Apollonia Tower. Coffees and cocktails on comfortable sunbeds and large poufs — crystal-clear sea, mixed Greek and international music.</p>
+      <div class="place-actions">
+        <a href="https://maps.app.goo.gl/r91qd5ttgQFNZ73z6" class="btn btn-primary" target="_blank" rel="noopener">📍 Directions</a>
+      </div>
+    </article>
+
+    <article class="place">
+      <h3>Paloma Beach Bar <span class="time-pill">4 min</span></h3>
+      <p>In Sarakina — organized beaches that combine simplicity with natural beauty. Small tavernas and canteens with delicious food and drinks nearby.</p>
+      <div class="place-actions">
+        <a href="https://maps.app.goo.gl/JgK77WkMVxq79zLJ7" class="btn btn-primary" target="_blank" rel="noopener">📍 Directions</a>
+      </div>
+    </article>
+  </section>
+
+  <!-- UNORGANIZED BEACHES -->
+  <section id="quiet">
+    <h2><span>🏖️</span> Quiet Beaches</h2>
+
+    <article class="place">
+      <h3>Paralia Folia <span class="time-pill">2 min</span></h3>
+      <p>A rough diamond minutes from the villa — over-aged olives, blooming bougainvillea and the dynamic sea. Perfect for a slow walk and watching the sunrise.</p>
+      <div class="place-actions">
+        <a href="https://maps.app.goo.gl/eqGvh5ahNWyaRWD38" class="btn btn-primary" target="_blank" rel="noopener">📍 Directions</a>
+      </div>
+    </article>
+
+    <article class="place">
+      <h3>First Dune Beach (Ammolofi) <span class="time-pill">12 min</span></h3>
+      <p>The unorganized side of Ammolofi — turquoise water, golden sand dunes. Bring everything you need (umbrella, towels, food).</p>
+      <div class="place-actions">
+        <a href="https://maps.app.goo.gl/7ef6dyH3TdPybeN3A" class="btn btn-primary" target="_blank" rel="noopener">📍 Directions</a>
+      </div>
+    </article>
+
+    <article class="place">
+      <h3>Vrasidas Beach <span class="time-pill">24 min</span></h3>
+      <p>Hidden gem between the dunes and Nea Peramos — deep blue water, sandy beach, lots of privacy. Bring snorkel &amp; fins, lots of fish to see. One small taverna for shade at noon.</p>
+      <div class="place-actions">
+        <a href="https://maps.app.goo.gl/J7FprpqCuR1T7mHF9" class="btn btn-primary" target="_blank" rel="noopener">📍 Directions</a>
+      </div>
+    </article>
+
+    <article class="place">
+      <h3>Nudist Beach Kavalas <span class="time-pill">7 min</span></h3>
+      <p>Quiet wild rocky landscape with a calm sea. No canteens or bins — come organized. For couples or groups who enjoy nudism.</p>
+      <div class="place-actions">
+        <a href="https://maps.app.goo.gl/vQg3agVPcKJbfckT6" class="btn btn-primary" target="_blank" rel="noopener">📍 Directions</a>
+      </div>
+    </article>
+  </section>
+
+  <!-- EXPERIENCES -->
+  <section id="experiences">
+    <h2><span>🌊</span> Experiences</h2>
+
+    <article class="place">
+      <h3>Loutra Eleftheron Hot Springs <span class="time-pill">7 min</span></h3>
+      <p>Natural thermal hot springs cherished since Ancient Greek and Roman times. Not organized — abandoned buildings frame the route. The first hot spring is at the end of the road above the last building; the main natural thermal pool is upstream.</p>
+      <div class="place-actions">
+        <a href="https://maps.app.goo.gl/4Z3sGZic61fDAUBX9" class="btn btn-primary" target="_blank" rel="noopener">📍 Directions</a>
+      </div>
+    </article>
+
+    <article class="place">
+      <h3>Tower of Apollonia <span class="time-pill">3 min</span></h3>
+      <p>A 14th-century late-Byzantine tower perched on a rugged cliff above the Aegean. Panoramic views of secluded coves, golden beaches and sun-kissed rocks. The sunset is unforgettable.</p>
+      <div class="place-actions">
+        <a href="https://maps.app.goo.gl/uUsXZ9jAmPinFCe18" class="btn btn-primary" target="_blank" rel="noopener">📍 Directions</a>
+      </div>
+    </article>
+
+    <article class="place">
+      <h3>Mesoropi Gournes (Waterfalls) <span class="time-pill">25 min drive + 7 min walk</span></h3>
+      <p>Drive through the picturesque alleys of Mesoropi to the parking point, then follow the enchanting path to a cold spring and a small waterfall. Explore upstream, cool off, then stop by the award-winning Bostani taverna.</p>
+      <div class="place-actions">
+        <a href="https://maps.app.goo.gl/tW4wF319MqTUQaqL8" class="btn btn-primary" target="_blank" rel="noopener">📍 Parking</a>
+        <a href="https://maps.app.goo.gl/QL4oA9Jfff2dekKq6" class="btn btn-secondary" target="_blank" rel="noopener">💧 Waterfall</a>
+        <a href="https://maps.app.goo.gl/2M3Tkn5M3PW7HQkE9" class="btn btn-outline" target="_blank" rel="noopener">🍴 Bostani Taverna</a>
+      </div>
+    </article>
+
+    <article class="place">
+      <h3>Ktima Biblia Chora Winery <span class="time-pill">28 min</span></h3>
+      <p>Tour the estate's vineyard, production, ageing and underground cellars, ending with a tasting of the Estate's wines. <strong>Reservation required</strong> — Monday to Friday, 10:00–14:00.</p>
+      <div class="place-actions">
+        <a href="https://bibliachora.gr/episkepsi-ktima/" class="btn btn-primary" target="_blank" rel="noopener">🔗 Book the Tour</a>
+      </div>
+    </article>
+  </section>
+
+  <!-- TAVERNAS -->
+  <section id="eat">
+    <h2><span>🍴</span> Tavernas We Love</h2>
+
+    <article class="place">
+      <h3>Foinikas — Greek Restaurant <span class="time-pill">7 min</span></h3>
+      <p>Ideal for fish and ouzo by the sea, with plenty of space for kids to play while parents enjoy their meal. Take-away available.</p>
+      <div class="place-actions">
+        <a href="tel:+306995032296" class="btn btn-primary">📞 +30 699 503 2296</a>
+        <a href="https://g.co/kgs/HUP89dS" class="btn btn-outline" target="_blank" rel="noopener">📍 Directions</a>
+      </div>
+    </article>
+
+    <article class="place">
+      <h3>Sarakina Wooden House <span class="time-pill">7 min</span></h3>
+      <p>Simple, delicious dishes by the sea. The waves and the right company (beer, tsipouro) make every bite memorable.</p>
+      <div class="place-actions">
+        <a href="tel:+306984061224" class="btn btn-primary">📞 +30 698 406 1224</a>
+        <a href="https://maps.app.goo.gl/ubQ4H7qy566cbFv8A" class="btn btn-outline" target="_blank" rel="noopener">📍 Directions</a>
+      </div>
+    </article>
+
+    <article class="place">
+      <h3>Kapetanios Seafood &amp; Café <span class="time-pill">6 min</span></h3>
+      <p>Traditional picturesque taverna on a crystal-clear beach. Enjoy the meal with family or friends — coffee, drinks, snacks on your sunbed. Wide selection of wines and ouzo.</p>
+      <div class="place-actions">
+        <a href="tel:+302594092601" class="btn btn-primary">📞 25940 92601</a>
+        <a href="https://maps.app.goo.gl/Lw9DuPoXa2YzzN1A9" class="btn btn-outline" target="_blank" rel="noopener">📍 Directions</a>
+      </div>
+    </article>
+
+    <article class="place">
+      <h3>Alburo Seafood Restaurant <span class="time-pill">11 min</span></h3>
+      <p>Panoramic sea view. Pair your dishes with the best wines of the region. Family-friendly and impeccably clean.</p>
+      <div class="place-actions">
+        <a href="tel:+306948527220" class="btn btn-primary">📞 +30 694 852 7220</a>
+        <a href="https://maps.app.goo.gl/c6Y5o65qZEpjP24v7" class="btn btn-outline" target="_blank" rel="noopener">📍 Directions</a>
+      </div>
+    </article>
+
+    <article class="place">
+      <h3>TO KTIMA <span class="time-pill">20 min</span></h3>
+      <p>Escape from the sea for a moment. Serene atmosphere, generous portions, next to the vineyards — perfect for families and groups. A mountain breeze that wins you over.</p>
+      <div class="place-actions">
+        <a href="tel:+302594092052" class="btn btn-primary">📞 25940 92052</a>
+        <a href="https://maps.app.goo.gl/f6nE7teHHosXAJyu9" class="btn btn-outline" target="_blank" rel="noopener">📍 Directions</a>
+      </div>
+    </article>
+  </section>
+
+  <!-- SUPERMARKETS & PHARMACIES -->
+  <section id="shop">
+    <h2><span>🛒</span> Supermarkets &amp; Pharmacies</h2>
+
+    <div class="card">
+      <h3 style="margin-top:0">💊 Pharmacies <span class="time-pill">~13 min</span></h3>
+      <ul class="service-list">
+        <li>
+          <span class="s-name">Iliana Kazopoulou</span>
+          <a href="https://maps.app.goo.gl/tm4BKV81BSyuhDrZ7" class="btn btn-outline" target="_blank" rel="noopener">📍 Map</a>
+        </li>
+        <li>
+          <span class="s-name">Stavros Vasileiadis</span>
+          <a href="https://maps.app.goo.gl/3GKps9jc8EAnPPLe8" class="btn btn-outline" target="_blank" rel="noopener">📍 Map</a>
+        </li>
+        <li>
+          <span class="s-name">Hadjisavva Gabriela <small style="display:block;color:var(--fg);font-weight:400">Inside Folia village</small></span>
+          <a href="https://maps.app.goo.gl/GEgYp2D4fwEgnXfD6" class="btn btn-outline" target="_blank" rel="noopener">📍 Map</a>
+        </li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h3 style="margin-top:0">🛒 Supermarkets</h3>
+      <ul class="service-list">
+        <li>
+          <span class="s-name">Gountsidis — Nea Peramos</span>
+          <a href="https://g.co/kgs/vjm3DJS" class="btn btn-outline" target="_blank" rel="noopener">📍 Map</a>
+        </li>
+        <li>
+          <span class="s-name">Lidl — Nea Hrakleitsa</span>
+          <a href="https://g.co/kgs/iwqkbZo" class="btn btn-outline" target="_blank" rel="noopener">📍 Map</a>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- SIGN OFF -->
+  <div class="signoff">
+    “We wish you a comfortable and wonderful stay.”
+    <div class="signoff-sub">— The Pimenidis family</div>
+  </div>
+
+  <div class="footer-mini">
+    Villa Alexandra • Nea Peramos 64007, Greece<br>
+    villalexandragr@gmail.com • +30 693 039 6868
+  </div>
+
+</main>
+
+<!-- BOTTOM NAV -->
+<nav class="bottom-nav" aria-label="Quick navigation">
+  <a href="#top"><span class="nav-icon">🏡</span><span>Welcome</span></a>
+  <a href="#stay"><span class="nav-icon">ℹ️</span><span>Stay</span></a>
+  <a href="#eat"><span class="nav-icon">🍴</span><span>Eat</span></a>
+  <a href="#beaches"><span class="nav-icon">⛱️</span><span>Beaches</span></a>
+  <a href="#emergency"><span class="nav-icon">🚨</span><span>Help</span></a>
+</nav>
+
+<script>
+  // Highlight current section in bottom nav
+  const navLinks = document.querySelectorAll('.bottom-nav a');
+  const sectionIds = ['top','stay','eat','beaches','emergency'];
+  const sections = sectionIds.map(id => document.getElementById(id));
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const idx = sections.indexOf(entry.target);
+        if (idx >= 0) {
+          navLinks.forEach(l => l.classList.remove('active'));
+          navLinks[idx].classList.add('active');
+        }
+      }
+    });
+  }, { rootMargin: '-50% 0px -50% 0px' });
+  sections.forEach(s => s && observer.observe(s));
+</script>
+
+</body>
+</html>
