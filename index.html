@@ -6,8 +6,7 @@
 <title>Welcome to Villa Alexandra — Guest Guide</title>
 <meta name="description" content="Your guide to a perfect stay at Villa Alexandra in Nea Peramos, Greece. Beaches, tavernas, services and emergency contacts — one tap away.">
 <meta name="theme-color" content="#A4B494">
-<link rel="icon" href="https://villa-alexandra.lovable.app/lovable-uploads/669a1557-cb58-47c3-95a2-e39adc49d607.png">
-<link rel="apple-touch-icon" href="https://villa-alexandra.lovable.app/lovable-uploads/669a1557-cb58-47c3-95a2-e39adc49d607.png">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='48' fill='%23FDFCF9' stroke='%23A4B494' stroke-width='3'/%3E%3Ctext x='50' y='66' font-family='serif' font-size='42' font-weight='600' text-anchor='middle' fill='%23A4B494'%3EVA%3C/text%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&display=swap" rel="stylesheet">
@@ -41,11 +40,13 @@
   .container{max-width:760px;margin:0 auto;padding:0 1.15rem}
   .lang-strip{position:sticky;top:0;z-index:90;background:rgba(253,252,249,.96);backdrop-filter:blur(12px);padding:.55rem 1rem;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid var(--border)}
   .lang-strip .brand{font-family:'Playfair Display',serif;font-weight:600;color:var(--fg-dark);font-size:.95rem;display:flex;align-items:center;gap:.45rem}
-  .lang-strip .brand img{width:22px;height:22px;border-radius:50%}
+  .lang-strip .brand svg{width:24px;height:24px;flex-shrink:0}
+  .brand-mark{display:inline-flex;align-items:center;justify-content:center}
   .lang-buttons button{background:transparent;border:1px solid var(--border);padding:.22rem .5rem;border-radius:999px;font-size:.7rem;font-weight:600;color:var(--fg);cursor:pointer;margin-left:.25rem;font-family:'Inter',sans-serif}
   .lang-buttons button.active{background:var(--primary);color:var(--primary-fg);border-color:var(--primary)}
-  .hero{position:relative;min-height:62vh;background:linear-gradient(rgba(60,60,60,.30),rgba(60,60,60,.55)),url('https://villa-alexandra.lovable.app/lovable-uploads/096fc160-9334-4569-9187-ce3df78c8051.jpg') center/cover;color:var(--primary-fg);display:flex;flex-direction:column;justify-content:flex-end;padding:5rem 1.25rem 3rem}
-  .hero-logo{width:80px;height:80px;border-radius:50%;background:rgba(255,255,255,.95);padding:6px;box-shadow:var(--shadow-lg);margin-bottom:1.1rem}
+  .hero{position:relative;min-height:62vh;background:linear-gradient(rgba(60,60,60,.30),rgba(60,60,60,.55)),url('images/villa-hero.jpg') center/cover,linear-gradient(135deg,#A4B494,#B7D2D2);color:var(--primary-fg);display:flex;flex-direction:column;justify-content:flex-end;padding:5rem 1.25rem 3rem}
+  .hero-logo{width:84px;height:84px;border-radius:50%;background:rgba(255,255,255,.96);box-shadow:var(--shadow-lg);margin-bottom:1.1rem;display:flex;align-items:center;justify-content:center}
+  .hero-logo svg{width:60px;height:60px}
   .hero h1{color:var(--primary-fg);font-size:2.5rem;letter-spacing:-.01em}
   .hero .tagline{font-family:'Playfair Display',serif;font-style:italic;font-size:1.05rem;opacity:.94;margin-top:.4rem}
   .hero .sub{margin-top:.85rem;max-width:34ch;opacity:.95;font-size:.95rem}
@@ -107,10 +108,17 @@
   .signoff{text-align:center;padding:2rem 1.25rem 1rem;font-family:'Playfair Display',serif;font-style:italic;color:var(--fg-dark);font-size:1.2rem;line-height:1.4}
   .signoff-sub{font-style:normal;font-family:'Inter',sans-serif;color:var(--fg);font-size:.82rem;margin-top:.65rem}
   .footer-mini{text-align:center;padding:1.25rem 1rem 1.5rem;color:var(--fg);font-size:.72rem;opacity:.7}
-  .pool-banner{background:linear-gradient(135deg,var(--accent) 0%,var(--accent-dark) 100%);color:var(--fg-dark);border-radius:var(--radius-lg);padding:1.15rem;box-shadow:var(--shadow);margin-bottom:.85rem;display:flex;align-items:center;gap:1rem}
-  .pool-banner .pool-icon{font-size:2.6rem;line-height:1}
-  .pool-banner h3{margin:0 0 .1rem;color:var(--fg-dark)}
+  .pool-banner{background:linear-gradient(135deg,var(--accent) 0%,var(--accent-dark) 100%);color:var(--fg-dark);border-radius:var(--radius-lg);box-shadow:var(--shadow);margin-bottom:.85rem;overflow:hidden}
+  .pool-banner .pool-photo{width:100%;aspect-ratio:16/9;background-size:cover;background-position:center}
+  .pool-banner .pool-body{padding:1rem 1.15rem 1.15rem;display:flex;align-items:center;gap:.9rem}
+  .pool-banner .pool-icon{font-size:2.4rem;line-height:1;flex-shrink:0}
+  .pool-banner h3{margin:0 0 .15rem;color:var(--fg-dark);display:flex;align-items:center;gap:.4rem;flex-wrap:wrap;line-height:1.2}
   .pool-banner p{margin:0;font-size:.88rem}
+  /* Place card with photo */
+  .place.has-photo{padding:0;overflow:hidden}
+  .place-photo{width:100%;aspect-ratio:16/9;background-size:cover;background-position:center;background-color:var(--bg-soft)}
+  .place-body{padding:1.05rem 1.2rem 1.15rem}
+  .place.has-photo .place-body h3{margin-top:.1rem}
   @media (min-width:520px){
     .hero h1{font-size:3rem}
     .quick-actions{margin-left:auto;margin-right:auto;max-width:720px}
@@ -122,7 +130,10 @@
 <!-- Top language strip -->
 <div class="lang-strip">
   <div class="brand">
-    <img src="https://villa-alexandra.lovable.app/lovable-uploads/669a1557-cb58-47c3-95a2-e39adc49d607.png" alt="">
+    <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <circle cx="50" cy="50" r="46" fill="#FDFCF9" stroke="#A4B494" stroke-width="3"/>
+      <text x="50" y="65" font-family="'Playfair Display', Georgia, serif" font-size="38" font-weight="600" text-anchor="middle" fill="#A4B494" letter-spacing="-1">VA</text>
+    </svg>
     Villa Alexandra
   </div>
   <div class="lang-buttons">
@@ -135,7 +146,12 @@
 
 <!-- HERO -->
 <header class="hero" id="top">
-  <img src="https://villa-alexandra.lovable.app/lovable-uploads/669a1557-cb58-47c3-95a2-e39adc49d607.png" alt="Villa Alexandra" class="hero-logo">
+  <div class="hero-logo">
+    <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" aria-label="Villa Alexandra">
+      <circle cx="50" cy="50" r="46" fill="#FDFCF9" stroke="#A4B494" stroke-width="3"/>
+      <text x="50" y="65" font-family="'Playfair Display', Georgia, serif" font-size="38" font-weight="600" text-anchor="middle" fill="#A4B494" letter-spacing="-1">VA</text>
+    </svg>
+  </div>
   <h1>Welcome to<br>Villa Alexandra</h1>
   <div class="tagline">Privacy. Luxury. Relaxation.</div>
   <p class="sub">When the sun meets the sea, relaxation is combined with luxury. We wish you a perfect stay.</p>
@@ -151,7 +167,7 @@
     <div class="qa-icon">💬</div>
     <div>WhatsApp</div>
   </a>
-  <a href="https://maps.app.goo.gl/yNM6B3LEYXJ2cFmRA" class="qa" target="_blank" rel="noopener">
+  <a href="https://maps.app.goo.gl/MmtTg7SwYdsFuEHx8" class="qa" target="_blank" rel="noopener">
     <div class="qa-icon">📍</div>
     <div>Directions</div>
   </a>
@@ -169,7 +185,7 @@
 
     <div class="card">
       <p style="margin-top:0"><strong style="color:var(--fg-dark)">Villa Alexandra</strong> is located near Nea Peramos – Kavala, in a magnificent location surrounded by ancient olive trees overlooking the Aegean Sea.</p>
-      <a href="https://maps.app.goo.gl/yNM6B3LEYXJ2cFmRA" target="_blank" rel="noopener" class="btn btn-primary">📍 Open in Google Maps</a>
+      <a href="https://maps.app.goo.gl/MmtTg7SwYdsFuEHx8" target="_blank" rel="noopener" class="btn btn-primary">📍 Open in Google Maps</a>
     </div>
 
     <div class="check-grid">
@@ -186,10 +202,13 @@
 
     <!-- NEW: Pool -->
     <div class="pool-banner">
-      <div class="pool-icon">🏊</div>
-      <div>
-        <h3>Large Pool <span class="badge new">NEW 2026</span></h3>
-        <p>A large pool has been added for the season — perfect for cooling off after the beach.</p>
+      <div class="pool-photo" style="background-image:url('images/villa-pool.jpg')"></div>
+      <div class="pool-body">
+        <div class="pool-icon">🏊</div>
+        <div>
+          <h3>Large Plastic Swimming Pool <span class="badge new">NEW 2026</span></h3>
+          <p>Newly added in the garden under the olive trees — perfect for cooling off after the beach, with a kids' playhouse and slide nearby.</p>
+        </div>
       </div>
     </div>
 
@@ -312,25 +331,34 @@
   <section id="explore">
     <h2><span>🏛️</span> Towns Nearby</h2>
 
-    <article class="place">
-      <h3>Kavala <span class="time-pill">35 min</span></h3>
-      <p>A hidden Aegean gem blending ancient history with modern charm — cobblestone old town, Byzantine walls, the imposing Kavala Castle, and seaside tavernas with fresh seafood.</p>
-      <div class="place-actions">
-        <a href="https://maps.app.goo.gl/pae4DqNTcSQGN6yz6" class="btn btn-primary" target="_blank" rel="noopener">📍 Get Directions</a>
+    <article class="place has-photo">
+      <div class="place-photo" style="background-image:url('https://upload.wikimedia.org/wikipedia/commons/thumb/a/a2/Kavala_%282%29.JPG/960px-Kavala_%282%29.JPG')"></div>
+      <div class="place-body">
+        <h3>Kavala <span class="time-pill">35 min</span></h3>
+        <p>A hidden Aegean gem blending ancient history with modern charm — cobblestone old town, Byzantine walls, the imposing Kavala Castle, and seaside tavernas with fresh seafood.</p>
+        <div class="place-actions">
+          <a href="https://maps.app.goo.gl/pae4DqNTcSQGN6yz6" class="btn btn-primary" target="_blank" rel="noopener">📍 Get Directions</a>
+        </div>
       </div>
     </article>
 
-    <article class="place">
-      <h3>Nea Peramos <span class="time-pill">14 min</span></h3>
-      <p>Stunning beaches and unique tavernas. Stroll the seaside pedestrian street, relax in the cafés and bars, and enjoy traditional Greek food.</p>
-      <div class="place-actions">
-        <a href="https://maps.app.goo.gl/yNM6B3LEYXJ2cFmRA" class="btn btn-primary" target="_blank" rel="noopener">📍 Get Directions</a>
+    <article class="place has-photo">
+      <div class="place-photo" style="background-image:url('https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/Nea_Peramos_01.JPG/960px-Nea_Peramos_01.JPG')"></div>
+      <div class="place-body">
+        <h3>Nea Peramos <span class="time-pill">14 min</span></h3>
+        <p>Stunning beaches and unique tavernas. Stroll the seaside pedestrian street, relax in the cafés and bars, and enjoy traditional Greek food.</p>
+        <div class="place-actions">
+          <a href="https://maps.app.goo.gl/yNM6B3LEYXJ2cFmRA" class="btn btn-primary" target="_blank" rel="noopener">📍 Get Directions</a>
+        </div>
       </div>
     </article>
 
-    <article class="place">
-      <h3>Eleftheroupoli <span class="time-pill">20 min</span></h3>
-      <p>One of the oldest towns in Eastern Macedonia, built at the foot of mounts Paggaio and Symbolo. <strong>Friday traditional market</strong> — fresh fruit and vegetables directly from producers. Visit the historic Holy Church of Agios Nikolaos.</p>
+    <article class="place has-photo">
+      <div class="place-photo" style="background-image:url('https://upload.wikimedia.org/wikipedia/commons/thumb/e/ea/Eleutheroupoli.JPG/960px-Eleutheroupoli.JPG')"></div>
+      <div class="place-body">
+        <h3>Eleftheroupoli <span class="time-pill">20 min</span></h3>
+        <p>One of the oldest towns in Eastern Macedonia, built at the foot of mounts Paggaio and Symbolo. <strong>Friday traditional market</strong> — fresh fruit and vegetables directly from producers. Visit the historic Holy Church of Agios Nikolaos.</p>
+      </div>
     </article>
   </section>
 
@@ -338,35 +366,59 @@
   <section id="beaches">
     <h2><span>⛱️</span> Organized Beaches</h2>
 
-    <article class="place">
-      <h3>Ammolofi <span class="time-pill">12 min</span></h3>
-      <p>Ranked among the ten most beautiful beaches in Greece. Turquoise waters, long golden sand, beach bars, sunbeds and parking.</p>
-      <div class="place-actions">
-        <a href="https://maps.app.goo.gl/J83kdp2168ryLssZA" class="btn btn-primary" target="_blank" rel="noopener">📍 Directions</a>
+    <article class="place has-photo">
+      <div class="place-photo" style="background-image:url('https://lh3.googleusercontent.com/grass-cs/ANxoTn02-C5xrEl11VikXRrLWL2mDVDp3kK2F7vKFMD2PHj66COEDLJ6Agew48-S4aEb7ymzY9QnsIzEYRWH63xSMSt9c6WWR9Kl5RYc4wsJ_FnaUgCEdHIwz6Xd-InptIJr7yhdo1a83WuRYNI=w1600-h900-p-k-no')"></div>
+      <div class="place-body">
+        <h3>Ammolofi <span class="time-pill">12 min</span></h3>
+        <p>Ranked among the ten most beautiful beaches in Greece. Turquoise waters, long golden sand, beach bars, sunbeds and parking.</p>
+        <div class="place-actions">
+          <a href="https://maps.app.goo.gl/J83kdp2168ryLssZA" class="btn btn-primary" target="_blank" rel="noopener">📍 Directions</a>
+        </div>
       </div>
     </article>
 
-    <article class="place">
-      <h3>Almyra Beach Bar <span class="time-pill">6 min</span></h3>
-      <p>One of the most famous beach bars in the area. Fully organized with beach volleyball, beach tennis and racquetball. Known for parties with well-known DJs and unforgettable nights by the sea.</p>
-      <div class="place-actions">
-        <a href="https://maps.app.goo.gl/cuHfxU15tssUSrUK7" class="btn btn-primary" target="_blank" rel="noopener">📍 Directions</a>
+    <article class="place has-photo">
+      <div class="place-photo" style="background-image:url('https://peponibeachbar.com/wp-content/uploads/2024/07/Rectangle-39-optimaized.jpg')"></div>
+      <div class="place-body">
+        <h3>Peponi Beach Bar <span class="time-pill">12 min</span> <span class="badge new">NEW</span></h3>
+        <p>The famous beach bar right on Ammolofoi Beach — full setup with sunbeds, umbrellas, hookah, drinks and food. Great vibe, popular with locals and visitors alike.</p>
+        <div class="place-actions">
+          <a href="tel:+306980588280" class="btn btn-primary">📞 +30 698 058 8280</a>
+          <a href="https://www.google.com/maps/place/Peponi+Beach+Bar/@40.8155362,24.3003876,17z" class="btn btn-outline" target="_blank" rel="noopener">📍 Directions</a>
+        </div>
       </div>
     </article>
 
-    <article class="place">
-      <h3>Beach Bar Tripa <span class="time-pill">4 min</span></h3>
-      <p>A magnificent landscape with views of Apollonia Tower. Coffees and cocktails on comfortable sunbeds and large poufs — crystal-clear sea, mixed Greek and international music.</p>
-      <div class="place-actions">
-        <a href="https://maps.app.goo.gl/r91qd5ttgQFNZ73z6" class="btn btn-primary" target="_blank" rel="noopener">📍 Directions</a>
+    <article class="place has-photo">
+      <div class="place-photo" style="background-image:url('https://images.unsplash.com/photo-1640598783301-3551c3e5e1f4?w=960&auto=format&fit=crop&q=80')"></div>
+      <div class="place-body">
+        <h3>Almyra Beach Bar <span class="time-pill">6 min</span></h3>
+        <p>One of the most famous beach bars in the area. Fully organized with beach volleyball, beach tennis and racquetball. Known for parties with well-known DJs and unforgettable nights by the sea.</p>
+        <div class="place-actions">
+          <a href="https://maps.app.goo.gl/cuHfxU15tssUSrUK7" class="btn btn-primary" target="_blank" rel="noopener">📍 Directions</a>
+        </div>
       </div>
     </article>
 
-    <article class="place">
-      <h3>Paloma Beach Bar <span class="time-pill">4 min</span></h3>
-      <p>In Sarakina — organized beaches that combine simplicity with natural beauty. Small tavernas and canteens with delicious food and drinks nearby.</p>
-      <div class="place-actions">
-        <a href="https://maps.app.goo.gl/JgK77WkMVxq79zLJ7" class="btn btn-primary" target="_blank" rel="noopener">📍 Directions</a>
+    <article class="place has-photo">
+      <div class="place-photo" style="background-image:url('https://discoverkavala.com/wp-content/uploads/2025/06/Tripa-Beach-Bar-1.webp')"></div>
+      <div class="place-body">
+        <h3>Beach Bar Tripa <span class="time-pill">4 min</span></h3>
+        <p>A magnificent landscape with views of Apollonia Tower. Coffees and cocktails on comfortable sunbeds and large poufs — crystal-clear sea, mixed Greek and international music.</p>
+        <div class="place-actions">
+          <a href="https://maps.app.goo.gl/r91qd5ttgQFNZ73z6" class="btn btn-primary" target="_blank" rel="noopener">📍 Directions</a>
+        </div>
+      </div>
+    </article>
+
+    <article class="place has-photo">
+      <div class="place-photo" style="background-image:url('https://images.unsplash.com/photo-1661091106381-3f14511a0133?w=960&auto=format&fit=crop&q=80')"></div>
+      <div class="place-body">
+        <h3>Paloma Beach Bar <span class="time-pill">4 min</span></h3>
+        <p>In Sarakina — organized beaches that combine simplicity with natural beauty. Small tavernas and canteens with delicious food and drinks nearby.</p>
+        <div class="place-actions">
+          <a href="https://maps.app.goo.gl/JgK77WkMVxq79zLJ7" class="btn btn-primary" target="_blank" rel="noopener">📍 Directions</a>
+        </div>
       </div>
     </article>
   </section>
@@ -375,35 +427,47 @@
   <section id="quiet">
     <h2><span>🏖️</span> Quiet Beaches</h2>
 
-    <article class="place">
-      <h3>Paralia Folia <span class="time-pill">2 min</span></h3>
-      <p>A rough diamond minutes from the villa — over-aged olives, blooming bougainvillea and the dynamic sea. Perfect for a slow walk and watching the sunrise.</p>
-      <div class="place-actions">
-        <a href="https://maps.app.goo.gl/eqGvh5ahNWyaRWD38" class="btn btn-primary" target="_blank" rel="noopener">📍 Directions</a>
+    <article class="place has-photo">
+      <div class="place-photo" style="background-image:url('https://lh3.googleusercontent.com/gps-cs-s/APNQkAFamgKqrsjUCKD8X1fl-tqwpawuNTDRF7MNO0PGQeBU1TMg-_q3c54ospFWn8jh9T-LjEbylHG7rum4IPVTTw0sblbvcZtRCMD_Wj7h3LFn3eAr5RstCBV7jwhOmt3GFKE9JpPOvLYQqKtU=w1600-h900-k-no');background-position:center top"></div>
+      <div class="place-body">
+        <h3>Paralia Folia <span class="time-pill">2 min</span></h3>
+        <p>A rough diamond minutes from the villa — over-aged olives, blooming bougainvillea and the dynamic sea. Perfect for a slow walk and watching the sunrise.</p>
+        <div class="place-actions">
+          <a href="https://maps.app.goo.gl/eqGvh5ahNWyaRWD38" class="btn btn-primary" target="_blank" rel="noopener">📍 Directions</a>
+        </div>
       </div>
     </article>
 
-    <article class="place">
-      <h3>First Dune Beach (Ammolofi) <span class="time-pill">12 min</span></h3>
-      <p>The unorganized side of Ammolofi — turquoise water, golden sand dunes. Bring everything you need (umbrella, towels, food).</p>
-      <div class="place-actions">
-        <a href="https://maps.app.goo.gl/7ef6dyH3TdPybeN3A" class="btn btn-primary" target="_blank" rel="noopener">📍 Directions</a>
+    <article class="place has-photo">
+      <div class="place-photo" style="background-image:url('https://images.unsplash.com/photo-1563212108-e0983ed52917?w=960&auto=format&fit=crop&q=80')"></div>
+      <div class="place-body">
+        <h3>First Dune Beach (Ammolofi) <span class="time-pill">12 min</span></h3>
+        <p>The unorganized side of Ammolofi — turquoise water, golden sand dunes. Bring everything you need (umbrella, towels, food).</p>
+        <div class="place-actions">
+          <a href="https://maps.app.goo.gl/7ef6dyH3TdPybeN3A" class="btn btn-primary" target="_blank" rel="noopener">📍 Directions</a>
+        </div>
       </div>
     </article>
 
-    <article class="place">
-      <h3>Vrasidas Beach <span class="time-pill">24 min</span></h3>
-      <p>Hidden gem between the dunes and Nea Peramos — deep blue water, sandy beach, lots of privacy. Bring snorkel &amp; fins, lots of fish to see. One small taverna for shade at noon.</p>
-      <div class="place-actions">
-        <a href="https://maps.app.goo.gl/J7FprpqCuR1T7mHF9" class="btn btn-primary" target="_blank" rel="noopener">📍 Directions</a>
+    <article class="place has-photo">
+      <div class="place-photo" style="background-image:url('https://images.unsplash.com/photo-1633015351995-c728db82329d?w=960&auto=format&fit=crop&q=80')"></div>
+      <div class="place-body">
+        <h3>Vrasidas Beach <span class="time-pill">24 min</span></h3>
+        <p>Hidden gem between the dunes and Nea Peramos — deep blue water, sandy beach, lots of privacy. Bring snorkel &amp; fins, lots of fish to see. One small taverna for shade at noon.</p>
+        <div class="place-actions">
+          <a href="https://maps.app.goo.gl/J7FprpqCuR1T7mHF9" class="btn btn-primary" target="_blank" rel="noopener">📍 Directions</a>
+        </div>
       </div>
     </article>
 
-    <article class="place">
-      <h3>Nudist Beach Kavalas <span class="time-pill">7 min</span></h3>
-      <p>Quiet wild rocky landscape with a calm sea. No canteens or bins — come organized. For couples or groups who enjoy nudism.</p>
-      <div class="place-actions">
-        <a href="https://maps.app.goo.gl/vQg3agVPcKJbfckT6" class="btn btn-primary" target="_blank" rel="noopener">📍 Directions</a>
+    <article class="place has-photo">
+      <div class="place-photo" style="background-image:url('https://images.unsplash.com/photo-1569235397686-54a750d35f08?w=960&auto=format&fit=crop&q=80')"></div>
+      <div class="place-body">
+        <h3>Nudist Beach Kavalas <span class="time-pill">7 min</span></h3>
+        <p>Quiet wild rocky landscape with a calm sea. No canteens or bins — come organized. For couples or groups who enjoy nudism.</p>
+        <div class="place-actions">
+          <a href="https://maps.app.goo.gl/vQg3agVPcKJbfckT6" class="btn btn-primary" target="_blank" rel="noopener">📍 Directions</a>
+        </div>
       </div>
     </article>
   </section>
@@ -412,37 +476,49 @@
   <section id="experiences">
     <h2><span>🌊</span> Experiences</h2>
 
-    <article class="place">
-      <h3>Loutra Eleftheron Hot Springs <span class="time-pill">7 min</span></h3>
-      <p>Natural thermal hot springs cherished since Ancient Greek and Roman times. Not organized — abandoned buildings frame the route. The first hot spring is at the end of the road above the last building; the main natural thermal pool is upstream.</p>
-      <div class="place-actions">
-        <a href="https://maps.app.goo.gl/4Z3sGZic61fDAUBX9" class="btn btn-primary" target="_blank" rel="noopener">📍 Directions</a>
+    <article class="place has-photo">
+      <div class="place-photo" style="background-image:url('https://upload.wikimedia.org/wikipedia/commons/thumb/e/e2/Loutra_Eleftheron_Kavala%2C_Hot_Bath.jpg/960px-Loutra_Eleftheron_Kavala%2C_Hot_Bath.jpg')"></div>
+      <div class="place-body">
+        <h3>Loutra Eleftheron Hot Springs <span class="time-pill">7 min</span></h3>
+        <p>Natural thermal hot springs cherished since Ancient Greek and Roman times. Not organized — abandoned buildings frame the route. The first hot spring is at the end of the road above the last building; the main natural thermal pool is upstream.</p>
+        <div class="place-actions">
+          <a href="https://maps.app.goo.gl/4Z3sGZic61fDAUBX9" class="btn btn-primary" target="_blank" rel="noopener">📍 Directions</a>
+        </div>
       </div>
     </article>
 
-    <article class="place">
-      <h3>Tower of Apollonia <span class="time-pill">3 min</span></h3>
-      <p>A 14th-century late-Byzantine tower perched on a rugged cliff above the Aegean. Panoramic views of secluded coves, golden beaches and sun-kissed rocks. The sunset is unforgettable.</p>
-      <div class="place-actions">
-        <a href="https://maps.app.goo.gl/uUsXZ9jAmPinFCe18" class="btn btn-primary" target="_blank" rel="noopener">📍 Directions</a>
+    <article class="place has-photo">
+      <div class="place-photo" style="background-image:url('https://upload.wikimedia.org/wikipedia/commons/thumb/f/f6/20130816_Apollonia_Tower_Kavala_Thessaloniki_old_highway_Greece.jpg/960px-20130816_Apollonia_Tower_Kavala_Thessaloniki_old_highway_Greece.jpg');background-position:center top"></div>
+      <div class="place-body">
+        <h3>Tower of Apollonia <span class="time-pill">3 min</span></h3>
+        <p>A 14th-century late-Byzantine tower perched on a rugged cliff above the Aegean. Panoramic views of secluded coves, golden beaches and sun-kissed rocks. The sunset is unforgettable.</p>
+        <div class="place-actions">
+          <a href="https://maps.app.goo.gl/uUsXZ9jAmPinFCe18" class="btn btn-primary" target="_blank" rel="noopener">📍 Directions</a>
+        </div>
       </div>
     </article>
 
-    <article class="place">
-      <h3>Mesoropi Gournes (Waterfalls) <span class="time-pill">25 min drive + 7 min walk</span></h3>
-      <p>Drive through the picturesque alleys of Mesoropi to the parking point, then follow the enchanting path to a cold spring and a small waterfall. Explore upstream, cool off, then stop by the award-winning Bostani taverna.</p>
-      <div class="place-actions">
-        <a href="https://maps.app.goo.gl/tW4wF319MqTUQaqL8" class="btn btn-primary" target="_blank" rel="noopener">📍 Parking</a>
-        <a href="https://maps.app.goo.gl/QL4oA9Jfff2dekKq6" class="btn btn-secondary" target="_blank" rel="noopener">💧 Waterfall</a>
-        <a href="https://maps.app.goo.gl/2M3Tkn5M3PW7HQkE9" class="btn btn-outline" target="_blank" rel="noopener">🍴 Bostani Taverna</a>
+    <article class="place has-photo">
+      <div class="place-photo" style="background-image:url('https://images.unsplash.com/photo-1670056265866-93260dc7c7b6?w=960&auto=format&fit=crop&q=80')"></div>
+      <div class="place-body">
+        <h3>Mesoropi Gournes (Waterfalls) <span class="time-pill">25 min drive + 7 min walk</span></h3>
+        <p>Drive through the picturesque alleys of Mesoropi to the parking point, then follow the enchanting path to a cold spring and a small waterfall. Explore upstream, cool off, then stop by the award-winning Bostani taverna.</p>
+        <div class="place-actions">
+          <a href="https://maps.app.goo.gl/tW4wF319MqTUQaqL8" class="btn btn-primary" target="_blank" rel="noopener">📍 Parking</a>
+          <a href="https://maps.app.goo.gl/QL4oA9Jfff2dekKq6" class="btn btn-secondary" target="_blank" rel="noopener">💧 Waterfall</a>
+          <a href="https://maps.app.goo.gl/2M3Tkn5M3PW7HQkE9" class="btn btn-outline" target="_blank" rel="noopener">🍴 Bostani Taverna</a>
+        </div>
       </div>
     </article>
 
-    <article class="place">
-      <h3>Ktima Biblia Chora Winery <span class="time-pill">28 min</span></h3>
-      <p>Tour the estate's vineyard, production, ageing and underground cellars, ending with a tasting of the Estate's wines. <strong>Reservation required</strong> — Monday to Friday, 10:00–14:00.</p>
-      <div class="place-actions">
-        <a href="https://bibliachora.gr/episkepsi-ktima/" class="btn btn-primary" target="_blank" rel="noopener">🔗 Book the Tour</a>
+    <article class="place has-photo">
+      <div class="place-photo" style="background-image:url('https://bibliachora.gr/wp-content/uploads/2021/08/biblia-chora-header-ampelonas.jpg')"></div>
+      <div class="place-body">
+        <h3>Ktima Biblia Chora Winery <span class="time-pill">28 min</span></h3>
+        <p>Tour the estate's vineyard, production, ageing and underground cellars, ending with a tasting of the Estate's wines. <strong>Reservation required</strong> — Monday to Friday, 10:00–14:00.</p>
+        <div class="place-actions">
+          <a href="https://bibliachora.gr/episkepsi-ktima/" class="btn btn-primary" target="_blank" rel="noopener">🔗 Book the Tour</a>
+        </div>
       </div>
     </article>
   </section>
